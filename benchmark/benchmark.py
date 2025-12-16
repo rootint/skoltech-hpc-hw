@@ -1,10 +1,3 @@
-"""
-Benchmark script for Kuwahara filter implementations.
-
-This script benchmarks multiple Kuwahara filter implementations on sample images,
-measures inference speed, and generates visualizations.
-"""
-
 import json
 import os
 import time
@@ -15,29 +8,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 
-
-# ============================================================================
-# IMPLEMENTATIONS TO BENCHMARK
-# ============================================================================
-# Add your implementations here by importing them and adding to IMPLEMENTATIONS dict
-#
-# Example usage:
-#   from implementation.numba import kuwahara_numba
-#   from implementation.other_impl import kuwahara_other
-#
-#   IMPLEMENTATIONS = {
-#       "numba": kuwahara_numba,
-#       "other": kuwahara_other,
-#   }
-#
-# Note: All implementations should have the signature: func(img: np.ndarray, radius: int) -> np.ndarray
-
-# TODO: Import your implementations here
-
 from implementation.numba import kuwahara_numba
+# from implementation.naive import kuwahara_naive
 
 IMPLEMENTATIONS: Dict[str, callable] = {
     "numba": kuwahara_numba,
+    # "naive": kuwahara_naive,
     # Add more implementations here as you import them
 }
 
